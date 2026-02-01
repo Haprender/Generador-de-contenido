@@ -1,113 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
     <style>
-        :root {
-            --accent: #0077ff; /* Cambia dinámicamente */
-        }
-
+        :root { --accent: #FF5733; }
         body {
-            background: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
+            margin: 0; padding: 0;
+            background-color: #e0e0e0;
+            background-image: url('https://www.transparenttextures.com/patterns/p6.png');
+            font-family: 'Helvetica', Arial, sans-serif;
+            display: flex; flex-direction: column;
+            justify-content: space-between; align-items: center;
+            height: 1350px; width: 1080px; box-sizing: border-box;
+            padding: 80px; text-align: center;
         }
-
-        .post-card {
-            width: 500px;
-            height: 600px;
-            background: #e5e5e5;
-            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            animation: slideUp 0.8s ease-out;
-            box-sizing: border-box;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .number { font-size: 3.5rem; font-weight: 900; margin: 0; color: #222; }
-        
-        .title { 
-            font-size: 2rem; 
-            color: #444; 
-            line-height: 1.1; 
-            margin-top: 10px;
-        }
-        
-        .title b, .title strong { color: #000; font-weight: 800; }
-
-        .diagram-container {
-            width: 180px;
-            height: 180px;
-            color: var(--accent);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Estilo para los SVG que inyectaremos */
+        .number { font-size: 80px; font-weight: 900; margin: 0; color: #333; }
+        .title { font-size: 55px; color: #555; line-height: 1.2; }
+        .title b { color: #000; font-weight: 800; }
+        .diagram { width: 400px; height: 400px; color: var(--accent); }
         svg { width: 100%; height: 100%; }
-
-        .footer {
-            font-size: 1rem;
-            color: #666;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-            width: 100%;
-        }
-
-        .footer b { color: #222; }
+        .footer { font-size: 35px; color: #666; width: 100%; border-top: 2px solid #ccc; padding-top: 40px; }
+        .footer b { color: #000; }
     </style>
 </head>
 <body>
-
-    <div class="post-card" id="card">
-        <div class="header">
-            <h1 class="number" id="post-id">#5</h1>
-            <div class="title" id="post-title">El <b>"No"</b> es tu mejor herramienta.</div>
-        </div>
-
-        <div class="diagram-container" id="post-diagram">
-            </div>
-
-        <div class="footer" id="post-footer">
-            Cada vez que dices <b>"Sí"</b> a algo irrelevante, le dices <b>"No"</b> a tu meta.
-        </div>
+    <div>
+        <h1 class="number" id="post-id">#1</h1>
+        <div class="title" id="post-title">Cargando...</div>
     </div>
-
-    <script>
-        // Simulación de carga de datos desde el JSON
-        const data = {
-            id: "#5",
-            color: "#d9480f", // Naranja quemado profesional
-            titulo: "El <b>'No'</b> es tu mejor herramienta.",
-            conclusion: "Cada vez que dices <b>'Sí'</b> a algo irrelevante, le dices <b>'No'</b> a tu meta.",
-            diagrama: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-                        <path d="M20 20 L80 20 L65 70 L35 70 Z" />
-                        <path d="M50 70 L50 90" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M30 10 L45 18 M50 5 L50 15 M70 10 L55 18" stroke-width="2"/>
-                      </svg>`
-        };
-
-        // Aplicar datos al HTML
-        document.getElementById('post-id').innerText = data.id;
-        document.getElementById('post-title').innerHTML = data.titulo;
-        document.getElementById('post-footer').innerHTML = data.conclusion;
-        document.getElementById('post-diagram').innerHTML = data.diagrama;
-        document.documentElement.style.setProperty('--accent', data.color);
-    </script>
+    <div class="diagram" id="post-diagram"></div>
+    <div class="footer" id="post-footer"></div>
 </body>
 </html>
